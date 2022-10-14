@@ -1,0 +1,19 @@
+Alexander Tsuetaki
+HW10 - ML abstract
+
+partner:  none
+
+Collaboration:
+James Cameron
+Skye Soss
+Matt Ahrens
+Janny Huang
+
+Exercises Completed:
+    H, I, N, ADT
+
+CURRENT ERROR:
+There is a current error in bignum.sml regarding that type.
+Please look at the commented out code, as it the algorithm should
+be correct, if the type was properly implemented as the tuple of a
+boolean * natural would pattern match for the arithmetic functions.

@@ -1,0 +1,48 @@
+37
+We chose the subclass method because the spec indicated we would learn more.
+After learning the basic structure the coding generally fell into place. If
+we had used the array methods however we believe we would have better
+performance and we could add naturals more easily.
+
+(class NatZero
+[subclass-of Natural]
+
+instance variables not created, as the invariants for NatZero was that it had
+the value 0 when asked for its value and returned NatZero when asked to return
+a Natural number
+
+(class NatNonZero
+[subclass-of Natural]
+[ivars n d]
+
+instance variables n and d were created such that value(n) * base + d = Number
+in base 10. n represents a natural number stored in the current NatNonZero
+instance. d represents the digit in the current NatNonZero instance.
+
+With this form we know that each instance of NatNonZero represents one digit
+of a number in the base of Natural. Thus we know that the most significant digit
+will have a n = NatZero, indicating it is the most significant digit and we can
+recurse no further. We also know that the value in d must be from
+0 <= x < natural base, and we define each digit to be from 0 to natural base.
+
+
+38
+(class LargePositiveInteger
+  [subclass-of LargeInteger]
+  [ivars magnitude]
+
+the instance variable for LargePositiveInteger is magnitude representing  a
+Natural number. This is used to represent the magnitude of the integer.
+
+With this form we know the sign of the integer is positive, we can return the
+magnitude, which is also always positive, with impunity.
+
+(class LargeNegativeInteger
+  [subclass-of LargeInteger]
+  [ivars magnitude]
+
+the instance variable for LargeNegativeInteger is magnitude representing  a 
+Natural number. This is used to represent the magnitude of the integer.
+
+With this form we know the sign of the integer is positive, we can return the
+negative of the magnitude, which is also always negative, with impunity.

@@ -1,0 +1,23 @@
+comp105 - HW& - type scheme
+Alexander Tsuetaki
+Michael Ngai
+
+Completed: everything except q19 is broken and qR is on the right track but
+broken.  IMPORTANT: qR is completely commented out, but is on line 2555
+
+TA's we collaborated with:
+Timothy, Ben, Matt, Lulu, Josefine, Viet, Skye, Emily
+
+
+Answer to question R:
+a) * -> *
+b) ref has type  FORALL (["'a"], FUNTY ([tvA], reftype tvA)))
+   ! has type    FORALL (["'a"], FUNTY ([reftype tvA], tvA))
+   := has type   FORALL (["'a"], FUNTY ([reftype tvA, tvA], unittype))
+
+Description of design and implementation:
+
+We followed the directions as indicated on the spec. We created the typedof
+function one part at a time, and skipped to different locations as the spec
+said to.  Most of these inside functions are powered by let, since we needed
+to define more variables and functions inside.

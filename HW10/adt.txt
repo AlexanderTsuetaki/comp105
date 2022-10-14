@@ -1,0 +1,33 @@
+Abstraction
+BIGNUM
+
+Operation
+ofInt, negated, +, - ,*, sdiv, comp, tostring
+
+representation
+tuple of (bool, natrual)
+
+invariant
+(bool = false(negative), natrual = 0)
+
+Abstract Function
+
+A(b,n) = n -> (int) n * (if b then 1 else -1)
+
+
+Abstraction
+natural
+
+Operation
+ofInt, +, -, *, sdiv, compare, decimal, invariant
+
+representation
+the same data structure found in previous ml assignment. That being
+natural n  = (int, natural)
+
+invariant
+n cannot be negative, n cannot have leading zeros, n must be of type natural.
+
+
+Abstract Function
+A(b,n) = n -> (int) n * (if b then 1 else -1)

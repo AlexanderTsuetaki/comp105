@@ -1,0 +1,199 @@
+;;;;;;;;;;;;;;;;;;; COMP 105 IMPCORE ASSIGNMENT ;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;
+;;;;  Exercise DD
+
+
+;; (double-digit n) repeats each digit such that
+;;               a number with digits abc is output as aabbcc
+;;               the positive number input is expected to be 
+;;               < 20000  
+
+;; laws:
+;;   (double-digit d) == (+ (* 10 d) d)
+;;   (double-digit (+ (* 10 m) d)) == 
+;;                 (+ (* double-digit(m) 100) (+ (* 10 d ) d))
+;; using decinumeral form of n
+
+(define double (n) 
+    (begin
+        (+ (* 10 n) n)
+    )
+)
+
+(define double-digit (n)
+    (begin
+        (if (= (/ n 10) 0) 
+            (double n)
+            (+ (* (double-digit (/ n 10)) 100)
+               (double(mod n 10)))
+        )
+    )
+)
+
+
+        (check-expect (double-digit 9) 99)
+        (check-expect (double-digit 345) 334455)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;
+;;;;  Exercise C
+
+
+;; (population-count n) counts the number of 1's in the binary
+;;                      representation of the positive number(n)
+;;                      input
+
+;; laws:
+;;   (population-count 0) == (0)
+;;   (population-count (+ (* 2 m) b)) == (+ (population-count(m) b)
+;; binary op
+
+(define population-count (n)
+    (begin
+         (if (= n 0)
+             0
+             (+ (population-count (/ n 2)) (mod n 2))
+         )
+    )
+)
+
+        (check-expect (population-count 0) 0)
+        (check-expect (population-count 7) 3)
+        (check-expect (population-count 15) 4)
+        (check-expect (population-count 14) 3)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;
+;;;;  Exercise 2
+
+
+;; (sigma m n) adds all numbers from value m to value n
+;;             for example m = 1 n = 4 -> 1+2+3+4;
+
+;; laws: assuming the value of n is greater than m.
+;;   (sigma (= m n)) == (n) the base case where n = m as no m > n is in the  
+;;                          expected input
+;;   (sigma (< m (+ n 1))) == (+ (sigma(m n) n))
+;;                      
+;; peano number system based, but the number n's lower bound is
+;;       m meaning that sigma n m is equivilant to a peano 0 in
+;;       this case
+
+(define sigma (m n)
+        (begin
+                (if (= n m)
+                        n
+                        (+ (sigma m (- n 1)) n)
+                )
+        )
+    )
+
+        (check-expect (sigma 0 0) 0)
+        (check-expect (sigma 2 2) 2)
+        (check-expect (sigma 3 7) 25)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;
+;;;;  Exercise 5
+
+
+;; (prime? n) checks if n is a prime number
+;;            
+
+;; laws:
+;;   (prime? (< n 2)) == (n) if n = 0 return 0 if n = 1 return 1
+;;   (prime? (= n 2)) == (1) if n = 2 return 1
+;;   (prime? (> n 2)) == (divisible n 2) if n > 2 there is a possible divisor
+;;   (divisible (= m 1)) = (1)        if m = 1 there was no divisor (base case)
+;;   (divisible (= (mod n m) 0)) = (0)if there is a divisor return false
+;;   (divisible (!= (mod n m) 0)) = (divisible( n (- m 1))) decrement rule
+
+
+(define prime? (n)
+        (begin
+                (if (< n 2)
+                        n
+                        (if (= n 2)
+                                1
+                                (divisible? n (/ n 2))
+                        )
+                )
+        )
+)
+    
+(define divisible? (n m)
+        (begin
+                (if (< m 2)
+                        1
+                        (if (= (mod n m) 0)
+                                0
+                                (divisible? n (- m 1))
+                        )
+                )
+    )
+)
+        (check-assert (not (prime? 0)))
+        (check-assert (prime? 1))
+        (check-assert (prime? 2))
+        (check-assert (prime? 3))
+        (check-assert (not (prime? 4)))
+        (check-assert (prime? 5))
+        (check-assert (not (prime? 6)))
+
+
+
+
+
+;; (nthprime n) finds the nth prime number starting at n = 1 -> 2
+
+;; laws:
+;;   (nthprime (< n 1)) == (0)
+;;   (nthprime (>= n 1)) == (prime_finder n 2)
+;;   (prime_finder (= n 1)) == (m)
+;;   (prime_finder (and (!= n 1) (! (prime?(m))) )) 
+;;                       == (prime_finder(n (+ m 1)))
+;;   (prime_finder (and (!= n 1) (prime?(m)) )) 
+;;                       == (prime_finder((- n 1) (+ m 1)))
+;; 
+
+
+(define nthprime (n)
+    (begin
+        (if (< n 1)
+            0
+            (prime_finder n 2)
+        )
+    )
+)
+
+(define prime_finder (n m)
+    (begin
+        (if(= n 1)
+            (if (prime? m)
+                m
+                (prime_finder n (+ m 1) )
+            )
+            (if (prime? m)
+                (prime_finder (- n 1) ( + m 1 ))
+                (prime_finder n (+ m 1) )
+            )
+        )
+    )
+)
+
+        (check-expect (nthprime 0) 0)
+        (check-expect (nthprime 1) 2)
+        (check-expect (nthprime 2) 3)
+        (check-expect (nthprime 3) 5)
+        (check-expect (nthprime 4) 7)
+        (check-expect (nthprime 5) 11)
+

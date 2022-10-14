@@ -1,0 +1,150 @@
+;;
+;;28
+;;
+;;B
+(define Max* (xs)
+  (if (null? xs)
+    '()
+    (foldr Max
+      (car xs)
+      xs)
+    )
+  )
+ 
+;;E
+(define Sum (xs)
+  (if (null? xs)
+    '()
+    (foldr +
+      0
+      xs)
+    )
+  )
+
+;;F
+(define Product (xs)
+  (if (null? xs)
+    '()
+    (foldr *
+      1
+      xs)
+    )
+  )
+
+
+;;
+;;29
+;;
+
+;;a
+(define append (xs ys)
+  (if (null? xs)
+    ys
+    (if (null? ys)
+      xs
+      (foldr cons xs ys)
+      )
+    )
+  )
+
+;;c
+(define reverse (xs)
+  (foldl cons '() xs)
+  )
+
+;;
+;;30
+;;
+;; map
+(define map (f xs)
+  (foldr (lambda (x y) (cons (f x) y ))
+    '()
+    xs
+    )
+  )
+
+;; filter
+(define filter (f xs)
+  (foldr (lambda (x y) (if (f x) (cons x n) n))
+    '()
+    xs
+    )
+  )
+
+;; exists
+(define exists (f xs)
+  (foldr (lambda (x y) (or (f x) n))
+    #f
+    xs
+    )
+  )
+
+;; all
+(define exists (f xs)
+  (foldr (lambda (x y) (and (f x) n))
+    #t
+    xs
+    )
+  )
+
+
+;;
+;;38
+;;
+;;a
+(val evens? (lambda (x) (= (mod x 2 ) 0 )))
+
+;;b
+(val two-digits? (lambda (x) (and (< x 100) (> x 9))))
+
+;;c
+(define add-element (x xs)
+  (lambda (y) (or (xs y) (= y x)))
+  )
+(define union (xs ys)
+  (lambda (y) (or (xs y) (ys y)))
+  )
+(define intersect (xs ys)
+  (lambda (y) (and (xs y) (ys y)))
+  )
+(define diff (xs ys)
+  (lambda (y) (and (xs y) (not (ys y))))
+  )
+;;d
+(define set-ops-from (eq?)
+  (let ([emptyset  #f]
+        [member?  (eq? x)]
+        [add-element  (lambda (x y) (or (eq? y) (= y x)))]
+        [union  (lambda (y ys) (or (eq? y) (ys y)))]
+        [inter  (lambda (y ys) (and (eq? y) (ys y)))]
+        [diff  (lambda (y ys) (and (eq? y) (not (ys y))))])
+    (make-set-ops emptyset member? add-element union inter diff))
+  )
+
+;;
+;;F
+;;
+(define flip (f)
+  (lambda (x y) (f y x))
+  )
+
+;;
+;;O
+;;
+(define ordered-by? (f xs)
+  (if (null? xs)
+    #t
+    (if (null? (cdr xs))
+      #t
+      (if (f (car xs) (cadr xs))
+        (and #t (ordered-by? f (cdr xs)))
+        #f
+        )
+      )
+    )
+  )
+
+;;
+;;V
+;;
+(define )

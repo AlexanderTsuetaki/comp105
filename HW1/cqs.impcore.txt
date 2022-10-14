@@ -1,0 +1,32 @@
+1) if (3 > 5){
+       return 17
+   else{
+       return 99
+   } 
+   the value of this function is 99
+
+2) b) A definition can be made with any
+      expression as one of its parts
+
+3) No, there are too many arguments
+   for a + operation
+
+4) a) x = 9 - (12 /  3);
+   b) (set x (- 9 (/ 12 3)))
+
+5) a) Binary, decimal and parity are
+      all other choices for n's stucture
+   b) By inputing test n's we can determine
+      by seeing what m's were used in it's 
+      creation
+
+6) a) factorial is a self explatory  name
+      as it is obious how such a function
+      would be used and only has one var
+      which is the number being factorialed
+   b) for the power fucntion there are two
+      variables used, one for the number and
+      one for the power. As such a contract 
+      is nessisary to show which is which,
+      as it is not obious which number 
+      should be passed

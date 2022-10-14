@@ -1,0 +1,53 @@
+
+\section{1-9}
+\subsection{1}
+\subsubsection{a}
+2 cases
+\subsubsection{b}
+null?
+\subsubsection{c}
+4
+\subsubsection{d}
+symbol? number? booleam? 
+\subsection{2}
+\subsubsection{a}
+a
+\subsubsection{b}
+(b 1 2)
+\subsubsection{c}
+#f
+\subsection{3}
+println
+\subsection{4}
+b
+\subsection{5}
+d
+\subsection{6}
+\subsection{a}
+(find x (bind x v rho))  = (v rho)
+\subsection{b}
+append xs (append '() ys)) = '(xs ys)
+\subsection{c}
+(if p (if p x y) z) $&&$ (= p #t) = x
+(if p (if p x y) z) $&&$ (= p #f) = z
+\subsection{7}
+e other laws are mentioned
+\subsection{8}
+\subsection{a}
+y = 3
+\subsection{b}
+y = 4 
+\subsection{c}
+y = 3
+\subsection{9}
+\subsection{a}
+make-3point
+3point 
+3point-x
+3point-y
+3point-z
+\subsection{b}
+3point
+\subsection{c}
+make-3point
+\pagebreak

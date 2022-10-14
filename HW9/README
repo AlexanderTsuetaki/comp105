@@ -1,0 +1,20 @@
+Alexander Tsuetaki & Michael Ngai
+HW9 - OOP - pair section
+
+Collaborators : TA's Timothy, Gregory, Andrew, Ben, Armanc, Matt, Katelyn
+
+Exercises: 37,38,39,T,ADT  no extra credit
+
+Bignums was tested first with tests inside bignum.smt. We tested the functions
+as follows using check-print:
+
+tested if fromsmall works for 0 (num < base) and (num > base)
+tested comparison work for > < and = for combinations of 0 and (num > base)
+tested arithmetic for combinations of 0 and (num > base)
+
+Natural was tested first with tests inside bignum.smt. We tested the functions
+as follows using check-print:
+tested if fromsmall works for 0, negative numbers and positive numbers
+tested comparison work for > < and = for combinations of
+0, negative numbers and positive numbers
+tested arithmetic for combinations of 0, negative numbers and positive numbers

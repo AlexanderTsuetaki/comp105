@@ -1,0 +1,18 @@
+******************************************************************************
+*Comp 105 HW 1 Impcore                                                       *
+*Author: Alexander Tsuetaki                                                  *
+*Date Modified: 9/28/20 0 token used                                         *
+******************************************************************************
+
+Collaborators: none
+
+Parts of assignment completed: All
+
+Comments: I think I misunderstood part of D - excercise F.
+          can't a set function in impcore take a function as the expression?
+          the expression definition includes function calls and makes sense,
+          as adding the resolution of a function call is just some value, which
+          set then assigns to whatever variable it has in the variable-name slot
+          due to this I answered the question F-b with the ideas above in mind.
+          This said I was thus confused when F-b states that "Both (of) those
+          cases(set functions global and local) work ; show that they go though"

@@ -1,0 +1,32 @@
+;; (Reset-Val) sets global variable x to 1 or defines a local variable as 1
+;; dependent on if the current impcore is an awks, or icon type. global for
+;; awks and local for icon
+
+;; laws:
+;;   (Reset_Val) == (1)
+(define Reset-Val ()
+    (begin
+        (set x 1)
+        x
+        )
+    )
+
+;; (def-var) defines a local or global variable x and sets it's value to 0
+;;           then calls Reset-Val which either sets x to 1 if in the awks type
+;;           or does nothing to x if in the icon type
+
+;; laws:
+;;   (def-var) == (Reset-val() x) == 0 when in icon
+;;   (def-var) == (Reset-val() x) == 1 when in awks
+(define def-var ()
+    (begin
+        (set x 0)
+        (Reset_Val )
+        x
+        )
+    )
+
+
+
+        (check-assert      (def-var ))
+        (check-assert (not (def-var )))

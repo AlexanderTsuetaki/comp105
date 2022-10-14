@@ -1,0 +1,15 @@
+q 10 is not solved. I am still getting ERRORS
+to find q10 search (***************NEW WORK Q 10*************)
+it is commented out since i could not figure out what how to fix it.
+I understand the basic idea of how to do the question, type matching with the
+correct each type of expression, I am however getting errors when trying to
+access the expressions componenets.
+
+
+for question 4 I would think that adding this improvement does little if
+anything at all since removing the free vars is in the same O time as the
+program itself meaning that searching through it shouldn't improve preformance
+
+I burned my hand today and was thus not able to submit on time sorry.
+
+I recieved some help from the ta's yesterday, but did not collaborate with anyone
